@@ -9,9 +9,7 @@ spring:
     stream:
       bindings:
         output:
-          destination: spring-social
-          group: comments
+          destination: spring-social-comments
+          group: comments-service
           content-type: application/json
-  application:
-    name: images
 # end::settings[]

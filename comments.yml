@@ -1,0 +1,17 @@
+server: 
+  port: 9000
+
+# start::settings[]
+spring:
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: spring-social-comments
+          group: comments-service
+          content-type: application/json
+        output:
+          destination: spring-social-chat
+          group: comments-chat
+          content-type: application/json
+# end::settings[]

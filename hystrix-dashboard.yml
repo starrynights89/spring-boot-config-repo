@@ -1,0 +1,13 @@
+server: 
+  port: 7979
+
+# start::settings[]
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    serviceRegistry: false
+    serviceUrl: 
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+# end::settings[]
