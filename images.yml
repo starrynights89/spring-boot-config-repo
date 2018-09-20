@@ -1,0 +1,17 @@
+# tag::eureka[]
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+# tag::settings[]
+spring:
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: spring-social
+          group: comments
+          content-type: application/json
+  application:
+    name: images
+# end::settings[]
