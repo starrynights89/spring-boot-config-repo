@@ -1,0 +1,49 @@
+server:
+  port: 8200
+
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: imagesService
+        uri: lb://IMAGES
+        predicates:
+          - Path=/imagesService/**
+        filters:
+          - RewritePath=/imagesService/(?<segment>.*), /$\{segment}
+          - RewritePath=/imagesService, /
+          - SaveSession
+      - id: images
+        uri: lb://IMAGES
+        predicates:
+          - Path=/images/**
+        filters:
+          - SaveSession
+      - id: mainCss
+        uri: lb://IMAGES
+        predicates:
+          - Path=/main.css
+        filters:
+          - SaveSession
+      - id: commentsService
+        uri: lb://IMAGES
+        predicates:
+          - Path=/comments/**
+        filters:
+          - SaveSession
+    stream:
+      bindings:
+        input:
+          destination: spring-social-chat
+          group: comments-chat
+          content-type: application/json
+        newComments:
+          destination: spring-social-chat
+          group: comments-chat
+          content-type: application/json
+        clientToBroker:
+          destination: spring-social-chat-user-messages
+          group: app-chatMessages
+        brokerToClient:
+          destination: spring-social-chat-user-messages
+          group: topic-chatMessages
