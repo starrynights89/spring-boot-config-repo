@@ -1,6 +1,3 @@
-server:
-  port: 8200
-
 # tag::eureka[]
 eureka:
   client:
