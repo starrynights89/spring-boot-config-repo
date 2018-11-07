@@ -57,3 +57,8 @@ eureka:
     serviceUrl:
       defaultZone: http://user:password@localhost:8761/eureka
 # end::secured[]
+
+# tag::security[]
+security:
+  sessions: always
+# end::security[]
