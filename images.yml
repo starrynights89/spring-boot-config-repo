@@ -1,24 +1,13 @@
+
 server:
   port: 8200
 
-# tag::security[]
-security:
-  sessions: never
-# end::security[]
-
-# tag::ribbon[]
-images:
-  commentsUser: user
-  commentsPassword: password
-# end::ribbon[]
-
-# tag::secured[]
+# tag::eureka[]
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://user:password@localhost:8761/eureka/
-# end::secured[]
-
+      defaultZone: http://localhost:8761/eureka/
+# tag::settings[]
 spring:
   cloud:
     stream:
@@ -27,3 +16,4 @@ spring:
           destination: spring-social-comments
           group: comments-service
           content-type: application/json
+# end::settings[]
