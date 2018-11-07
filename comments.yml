@@ -12,3 +12,16 @@ eureka:
     serviceUrl:
       defaultZone: http://user:password@localhost:8761/eureka/
 # end::secured[]
+  
+spring:
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: spring-social-comments
+          group: comments-service
+          content-type: application/json
+        output:
+          destination: spring-social-chat
+          group: comments-chat
+          content-type: application/json
