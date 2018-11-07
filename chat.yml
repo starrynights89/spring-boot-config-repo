@@ -1,6 +1,7 @@
 server:
   port: 8080
   
+# tag::zuul[]
 spring:
   cloud:
     gateway:
@@ -32,20 +33,27 @@ spring:
         - Path=/comments/**
         filters:
         - SaveSession
-# end
+# end::zuul[]
     stream:
       bindings:
         input:
-          destination: spring-social-chat
+          destination: learning-spring-boot-chat
           group: comments-chat
           content-type: application/json
         newComments:
-          destination: spring-social-chat
+          destination: learning-spring-boot-chat
           group: comments-chat
           content-type: application/json
         clientToBroker:
-          destination: spring-social-chat-user-messages
+          destination: learning-spring-boot-chat-user-messages
           group: app-chatMessages
         brokerToClient:
-          destination: spring-social-chat-user-messages
+          destination: learning-spring-boot-chat-user-messages
           group: topic-chatMessages
+
+# tag::secured[]
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://user:password@localhost:8761/eureka
+# end::secured[]
