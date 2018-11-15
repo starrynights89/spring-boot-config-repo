@@ -1,6 +1,11 @@
 server:
   port: 9000
 
+security:
+  sessions: never
+  user:
+    password: password
+  
 # tag::secured[]
 eureka:
   client:
