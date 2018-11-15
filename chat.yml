@@ -37,41 +37,23 @@ spring:
     stream:
       bindings:
         input:
-          destination: learning-spring-boot-chat
+          destination: spring-social-chat
           group: comments-chat
           content-type: application/json
         newComments:
-          destination: learning-spring-boot-chat
+          destination: spring-social-chat
           group: comments-chat
           content-type: application/json
         clientToBroker:
-          destination: learning-spring-boot-chat-user-messages
+          destination: spring-social-chat-user-messages
           group: app-chatMessages
         brokerToClient:
-          destination: learning-spring-boot-chat-user-messages
+          destination: spring-social-chat-user-messages
           group: topic-chatMessages
 
 # tag::secured[]
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://user:password@localhost:8761/eureka
+      defaultZone: http://localhost:8761/eureka
 # end::secured[]
-
-# tag::security[]
-security:
-  sessions: always
-# end::security[]
-
-# tag::ribbon[]
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 60000
-ribbon:
-  ConnectTimeout: 3000
-  ReadTimeout: 60000
-# end::ribbon[]
