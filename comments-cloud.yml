@@ -4,7 +4,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://learning-spring-boot-eureka-server.cfapps.io/eureka/
+      defaultZone: http://spring-social-eureka-server.cfapps.io/eureka/
   instance:
     hostname: ${vcap.application.uris[0]}
     nonSecurePort: 80
