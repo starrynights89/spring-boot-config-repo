@@ -1,6 +1,11 @@
-
 server:
   port: 8761
+
+security:
+  basic:
+    enabled: true
+  user:
+    password: password
 
 eureka:
   instance:
@@ -10,3 +15,5 @@ eureka:
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://user:password@${eureka.instance.hostname}:${server.port}/eureka/
+      
+    
