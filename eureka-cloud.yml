@@ -3,5 +3,7 @@ server:
 
 eureka:
   instance:
+    prefer-ip-address: true
+    ip-address: ${server.address} 
     hostname: ${vcap.application.uris[0]}
     nonSecurePort: 80
