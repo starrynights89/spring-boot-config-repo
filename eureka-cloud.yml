@@ -1,6 +1,10 @@
 server:
   port: 8080
-
+  
+logging:
+  level:
+    org.springframework.cloud: 'DEBUG'
+    
 eureka:
   instance: 
     hostname: ${vcap.application.uris[0]}
