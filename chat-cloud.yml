@@ -7,3 +7,4 @@ eureka:
       defaultZone: https://spring-social-eureka-server.cfapps.io/eureka/
   instance:
     hostname: ${vcap.application.uris[0]}
+    nonSecurePort: 80
