@@ -4,7 +4,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${vcap.services.eureka.credentials.uri}
+      defaultZone: ${vcap.services.${PREFIX:}eureka.credentials.uri:https://${PREFIX:}eureka.${application.domain:cfapps.io}}/eureka/
   instance:
     hostname: ${vcap.application.uris[0]}
     secure-port: 433
