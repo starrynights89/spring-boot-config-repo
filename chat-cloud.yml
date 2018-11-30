@@ -4,7 +4,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: ${vcap.services.eureka.credentials.url}
+      defaultZone: ${vcap.services.eureka.credentials.uri}
   instance:
     hostname: ${vcap.application.uris[0]}
     secure-port: 433
